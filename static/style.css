@@ -1,0 +1,78 @@
+body {
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.7em;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+i.fa {
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+div.content {
+    margin: auto;
+    width: 30%;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    text-align: right;
+    list-style-type: none;
+    border-bottom: black 1px solid;
+    margin-top: 15px;
+    font-size: 20px;
+}
+
+li.done span.todo-name {
+    text-decoration: line-through;
+}
+
+form {
+    display: block;
+    text-align: center;
+}
+
+input[type='text'] {
+    background-color: #f7f0f0;
+    border-radius: 5px;
+    height: 35px;
+    border: 2px solid #9c9999;
+}
+
+.button {
+    padding: 10px;
+    border: 2px solid #9c9999;
+    border-radius: 5px;
+    background-color: #c2bfbf;
+}
+
+.button:hover {
+    background-color: #524f4f;
+    color: #fff;
+}
+
+.left {
+    float: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.margin-top {
+    margin-top: 30px;
+}
