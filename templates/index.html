@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>ToDo</title>
+  </head>
+  <body>
+    <h1>Web ToDoList</h1>
+    <div class="content">
+    {% block content%}
+      <h3 class="text-center">All todo items</h3>
+      <ul>
+      {% for item in list_all%}
+      <li {% if item.done %}class="done"{% endif %}>
+              <span class="left">
+              <a href="{{ url_for('toggle', todo_id=item.id)}}">
+                {% if item.done %}<i class="fa fa-check-square-o" aria-hidden="true">
+                {% else %}<i class="fa fa-square-o" aria-hidden="true">
+                {% endif %}</i></a>
+              <span class="todo-name">{{ item.name }}</span>
+              </span>
+              <a href="{{ url_for('edit', todo_id=item.id)}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+              <a href="{{ url_for('remove', todo_id=item.id)}}"><i class="fa fa-minus-square-o" aria-hidden="true"></i></a>
+      </li>
+      {% endfor%}
+      </ul>
+      <div class="text-center margin-top">
+          <a href="{{ url_for('add')}}" class="button">Add new todo</a>
+      </div>
+    {% endblock %}
+    </div>
+    </body>
+  </html>
