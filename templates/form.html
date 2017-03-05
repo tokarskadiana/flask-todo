@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+{% block content%}
+  <h3 class="text-center">Add new todo</h3>
+  <form class="todo" action="" method="post">
+    <input type="text" name="title"
+    {% if todo %}
+    value="{{ todo.name }}"
+    {% else %}
+    value=""
+    {% endif %}>
+    <input type="submit" name="save" value="Save" class="button">
+  </form>
+  <div class="text-center margin-top">
+    <a href="{{url_for('list')}}" class="button">Back</a>
+  </div>
+{% endblock%}
