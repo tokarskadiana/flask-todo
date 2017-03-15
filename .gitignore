@@ -95,7 +95,7 @@ ENV/
 .ropeproject
 
 # database
-data.sqlite
+todo.sqlite3
 
 # End of https://www.gitignore.io/api/python
 

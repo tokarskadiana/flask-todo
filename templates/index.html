@@ -22,12 +22,12 @@
               <span class="todo-name">{{ item.name }}</span>
               </span>
               <a href="{{ url_for('edit', todo_id=item.id)}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-              <a href="{{ url_for('remove', todo_id=item.id)}}"><i class="fa fa-minus-square-o" aria-hidden="true"></i></a>
+              <a href="{{ url_for('delete', todo_id=item.id)}}"><i class="fa fa-minus-square-o" aria-hidden="true"></i></a>
       </li>
       {% endfor%}
       </ul>
       <div class="text-center margin-top">
-          <a href="{{ url_for('add')}}" class="button">Add new todo</a>
+          <a href="{{ url_for('new')}}" class="button">Add new todo</a>
       </div>
     {% endblock %}
     </div>
