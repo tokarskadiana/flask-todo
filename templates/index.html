@@ -7,25 +7,46 @@
     <title>ToDo</title>
   </head>
   <body>
+    <div class="flash">
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      <ul class="flashes">
+          {% for message in messages %}
+          <li>{{ message }}</li>
+          {% endfor %}
+      </ul>
+      {% endif %}
+      {% endwith %}
+    </div>
     <h1>Web ToDoList</h1>
     <div class="content">
     {% block content%}
       <h3 class="text-center">All todo items</h3>
-      <ul>
-      {% for item in list_all%}
-      <li {% if item.done %}class="done"{% endif %}>
-              <span class="left">
-              <a href="{{ url_for('toggle', todo_id=item.id)}}">
-                {% if item.done %}<i class="fa fa-check-square-o" aria-hidden="true">
-                {% else %}<i class="fa fa-square-o" aria-hidden="true">
-                {% endif %}</i></a>
-              <span class="todo-name">{{ item.name }}</span>
-              </span>
-              <a href="{{ url_for('edit', todo_id=item.id)}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-              <a href="{{ url_for('delete', todo_id=item.id)}}"><i class="fa fa-minus-square-o" aria-hidden="true"></i></a>
-      </li>
-      {% endfor%}
-      </ul>
+      <table cellspacing="0">
+        <thead>
+          <th>Done</th>
+          <th>Name</th>
+          <th>Due date</th>
+          <th>Actions</th>
+        </thead>
+        <tbody>
+          {% for item in list_all %}
+          <tr {% if item.done %}class="done"{% endif %}>
+            <td><a href="{{ url_for('toggle', todo_id=item.id)}}">
+              {% if item.done %}<i class="fa fa-check-square-o" aria-hidden="true">
+              {% else %}<i class="fa fa-square-o" aria-hidden="true">
+              {% endif %}</i></a></td>
+              <td class="todo-name">{{ item.name }}</td>
+              <td class="todo-name">
+                {% if item.due_date %}{{ item.due_date.strftime('%d-%m-%Y') }}
+                {% else %}No due date{% endif %}</td>
+              <td>  <a href="{{ url_for('edit', todo_id=item.id)}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                <a href="{{ url_for('delete', todo_id=item.id)}}"><i class="fa fa-minus-square-o" aria-hidden="true"></i></a>
+      </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
       <div class="text-center margin-top">
           <a href="{{ url_for('new')}}" class="button">Add new todo</a>
       </div>

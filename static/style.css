@@ -21,23 +21,26 @@ i.fa {
 }
 
 div.content {
-    margin: auto;
-    width: 30%;
+    margin: 0 auto;
+    width: 80%;
 }
 
-ul {
-    padding: 0;
+table {
+    width: 100%;
 }
 
-li {
-    text-align: right;
-    list-style-type: none;
-    border-bottom: black 1px solid;
-    margin-top: 15px;
+tr, thead {
+    text-align: center;
     font-size: 20px;
 }
-
-li.done span.todo-name {
+th{
+  border-bottom: dotted black;
+}
+tr td{
+  border-bottom: solid black 1px;
+  padding: 10px;
+}
+tr.done td.todo-name {
     text-decoration: line-through;
 }
 
@@ -46,11 +49,14 @@ form {
     text-align: center;
 }
 
-input[type='text'] {
+input[type='text'], input[type='date'] {
     background-color: #f7f0f0;
     border-radius: 5px;
     height: 35px;
     border: 2px solid #9c9999;
+    margin: 10px auto;
+    display: block;
+    width: 300px;
 }
 
 .button {
@@ -58,6 +64,7 @@ input[type='text'] {
     border: 2px solid #9c9999;
     border-radius: 5px;
     background-color: #c2bfbf;
+    margin: 10px auto;
 }
 
 .button:hover {
@@ -65,10 +72,17 @@ input[type='text'] {
     color: #fff;
 }
 
+.back{
+  margin-left: 0;
+  font-weight: bold;
+  font-size: 20px;
+}
 .left {
     float: left;
 }
-
+.centered{
+    display: block;
+}
 .text-center {
     text-align: center;
 }

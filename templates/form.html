@@ -2,15 +2,19 @@
 {% block content%}
   <h3 class="text-center">Add new todo</h3>
   <form class="todo" action="" method="post">
-    <input type="text" name="title"
+    <input type="text" name="title" maxlength="50"
     {% if todo %}
     value="{{ todo.name }}"
     {% else %}
     value=""
     {% endif %}>
-    <input type="submit" name="save" value="Save" class="button">
+    <input type="date" name="due_date" placeholder="dd-mm-YYYY"
+    {% if todo %}
+    value="{{ todo.due_date }}"
+    {% else %}
+    value=""
+    {% endif %}>
+    <input type="submit" name="save" value="Save" class="button centered">
   </form>
-  <div class="text-center margin-top">
-    <a href="{{url_for('show_all')}}" class="button">Back</a>
-  </div>
+    <a href="{{url_for('show_all')}}" class='back'> < Back</a>
 {% endblock%}
