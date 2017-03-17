@@ -6,6 +6,25 @@ import datetime
 todo = Blueprint('todo', __name__, template_folder='templates')
 
 
+def date_format():
+    """
+    Detect if browser supports date type of input.
+    Returns: str
+    """
+    browser = request.user_agent.browser
+    version = request.user_agent.version and int(
+        request.user_agent.version.split('.')[0])
+    if browser and version:
+        if (browser == 'msie') \
+                or (browser == 'firefox') \
+                or (browser == 'chrome' and version < 5.0) \
+                or (browser == 'opera' and version < 10.62):
+                print('dupa')
+                return "%d-%m-%Y"
+        return "%Y-%m-%d"
+    return "%d-%m-%Y"
+
+
 @app.route("/")
 def show_all():
     """ Shows list of todo items stored in the database.
@@ -26,7 +45,8 @@ def new():
         else:
             if due_date:
                 try:
-                    due_date = datetime.datetime.strptime(due_date, "%d-%m-%Y").date()
+                    due_date = datetime.datetime.strptime(
+                        due_date, date_format()).date()
                 except ValueError:
                     flash('Please enter valid date')
                     return render_template('form.html')
@@ -37,7 +57,7 @@ def new():
             db.session.commit()
             flash('Record was successfully added')
             return redirect(url_for('show_all'))
-    return render_template('form.html')
+    return render_template('form.html', date_format=date_format())
 
 
 @app.route("/delete/<todo_id>")
@@ -68,7 +88,8 @@ def edit(todo_id):
             else:
                 if due_date:
                     try:
-                        due_date = datetime.datetime.strptime(due_date, "%d-%m-%Y").date()
+                        due_date = datetime.datetime.strptime(
+                            due_date, date_format()).date()
                     except ValueError:
                         flash('Please enter valid date')
                         return render_template('form.html', todo=todo)
@@ -78,7 +99,7 @@ def edit(todo_id):
                 todo.due_date = due_date
                 db.session.commit()
                 return redirect(url_for('show_all'))
-        return render_template('form.html', todo=todo)
+        return render_template('form.html', todo=todo, date_format=date_format())
     else:
         flash('No such todo item')
         return redirect(url_for('show_all'))

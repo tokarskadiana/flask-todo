@@ -10,7 +10,9 @@
     {% endif %}>
     <input type="date" name="due_date" placeholder="dd-mm-YYYY"
     {% if todo %}
-    value="{{ todo.due_date }}"
+    {% if todo.due_date %}
+    value="{{ todo.due_date.strftime(date_format) }}"
+    {% endif %}
     {% else %}
     value=""
     {% endif %}>
