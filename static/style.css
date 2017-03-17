@@ -23,6 +23,7 @@ i.fa {
 div.content {
     margin: 0 auto;
     width: 80%;
+    text-align: center;
 }
 
 table {
@@ -72,21 +73,16 @@ input[type='text'], input[type='date'] {
     color: #fff;
 }
 
-.back{
-  margin-left: 0;
+.back {
+  float: left;
   font-weight: bold;
   font-size: 20px;
 }
-.left {
-    float: left;
-}
-.centered{
+
+.centered {
     display: block;
 }
-.text-center {
-    text-align: center;
-}
 
-.margin-top {
-    margin-top: 30px;
+.add-button {
+    margin: 50px auto;
 }

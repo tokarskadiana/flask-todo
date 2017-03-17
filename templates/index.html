@@ -21,7 +21,7 @@
     <h1>Web ToDoList</h1>
     <div class="content">
     {% block content%}
-      <h3 class="text-center">All todo items</h3>
+      <h3>All todo items</h3>
       <table cellspacing="0">
         <thead>
           <th>Done</th>
@@ -47,7 +47,7 @@
           {% endfor %}
         </tbody>
       </table>
-      <div class="text-center margin-top">
+      <div class="add-button">
           <a href="{{ url_for('new')}}" class="button">Add new todo</a>
       </div>
     {% endblock %}
