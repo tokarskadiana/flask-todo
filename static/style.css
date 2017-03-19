@@ -2,6 +2,11 @@ body {
     font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 }
 
+body, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
 h1 {
     text-align: center;
 }
@@ -19,7 +24,19 @@ i.fa {
     font-size: 20px;
     margin-right: 5px;
 }
+p {
+  font-size: 20px;
+}
 
+.flashes ul{
+  list-style: none;
+  font-size: 20px;
+  text-align: center;
+}
+
+.flashes ul li {
+  padding: 10px 0;
+}
 div.content {
     margin: 0 auto;
     width: 80%;
@@ -28,6 +45,7 @@ div.content {
 
 table {
     width: 100%;
+    margin-top: 20px;
 }
 
 tr, thead {
@@ -35,7 +53,7 @@ tr, thead {
     font-size: 20px;
 }
 th{
-  border-bottom: dotted black;
+  border-bottom: solid black;
 }
 tr td{
   border-bottom: solid black 1px;
@@ -45,27 +63,33 @@ tr.done td.todo-name {
     text-decoration: line-through;
 }
 
-form {
+.todo_form {
     display: block;
     text-align: center;
 }
 
-input[type='text'], input[type='date'] {
-    background-color: #f7f0f0;
+.todo_form input[type='text'], .todo_form input[type='date'] {
+    background-color: #ffffff;
     border-radius: 5px;
     height: 35px;
-    border: 2px solid #9c9999;
+    border: 1px solid #2f2d2d;
     margin: 10px auto;
     display: block;
     width: 300px;
 }
 
+.filter_form input[type='date'] {
+  display: inline-block;
+  width: 150px;
+  margin-right: 10px;
+}
 .button {
     padding: 10px;
-    border: 2px solid #9c9999;
+    border: 1px solid #2f2d2d;
     border-radius: 5px;
-    background-color: #c2bfbf;
+    background-color: #ddd9d9;
     margin: 10px auto;
+    color: #000;
 }
 
 .button:hover {
@@ -85,4 +109,10 @@ input[type='text'], input[type='date'] {
 
 .add-button {
     margin: 50px auto;
+}
+.error {
+  background-color: red;
+}
+.success {
+  background-color: green;
 }

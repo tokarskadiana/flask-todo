@@ -1,21 +1,10 @@
 {% extends "index.html" %}
 {% block content%}
   <h3>Add new todo</h3>
-  <form class="todo" action="" method="post">
-    <input type="text" name="title" maxlength="50"
-    {% if todo %}
-    value="{{ todo.name }}"
-    {% else %}
-    value=""
-    {% endif %}>
+  <form class="todo_form" action="" method="post">
+    <input type="text" name="title" maxlength="50" value="{{ todo.name if todo }}">
     <input type="date" name="due_date" placeholder="dd-mm-YYYY"
-    {% if todo %}
-    {% if todo.due_date %}
-    value="{{ todo.due_date.strftime(date_format) }}"
-    {% endif %}
-    {% else %}
-    value=""
-    {% endif %}>
+    value="{{ (todo.due_date.strftime(date_format) if todo.due_date) if todo }}">
     <input type="submit" name="save" value="Save" class="button centered">
   </form>
     <a href="{{url_for('show_all')}}" class='back'> < Back</a>
