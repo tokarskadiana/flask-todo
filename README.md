@@ -1,6 +1,6 @@
 ## Welcome to Web Todo App!
 #### Manage Your daily business easier !!!
-You can check sample implementation [here](http://46.101.68.210:5000/).
+You can check app on Heroku [here](https://todoski.herokuapp.com/).
 
 
 ## :hammer: Setup
